@@ -6,6 +6,7 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.PreMonsterTurnSubscriber;
 import basicmod.relics.BaseRelic;
 import basicmod.util.GeneralUtils;
 import basicmod.util.KeywordInfo;
@@ -23,6 +24,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import org.apache.logging.log4j.LogManager;
@@ -37,7 +39,9 @@ public class BasicMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditRelicsSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber//,
+        //PreMonsterTurnSubscriber 
+        {
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -233,4 +237,10 @@ public class BasicMod implements
                     UnlockTracker.markRelicAsSeen(relic.relicId);
             });
     }
+
+    // @Override
+    // public boolean receivePreMonsterTurn(AbstractMonster arg0) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'receivePreMonsterTurn'");
+    // }
 }

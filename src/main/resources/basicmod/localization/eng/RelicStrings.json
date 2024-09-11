@@ -6,11 +6,18 @@
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
   },
-  "${modID}:kingWorm": {
-    "NAME": "King Worm",
+  "${modID}:conquerorWorm": {
+    "NAME": "Conqueror Worm",
     "FLAVOR": "This tragedy's hero",
     "DESCRIPTIONS": [
       "All enemies have less health, but have a small chance to give you a parasite."
+    ]
+  },
+  "${modID}:ashTray": {
+    "NAME": "Ash Tray",
+    "FLAVOR": "Also known as ‘Charon’s Cradle’.",
+    "DESCRIPTIONS": [
+      "Every 3rd card that exhausts when played is refunded its energy cost."
     ]
   }
 }
