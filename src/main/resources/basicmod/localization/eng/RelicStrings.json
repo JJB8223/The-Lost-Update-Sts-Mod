@@ -1,9 +1,9 @@
 {
-  "${modID}:RelicID": {
-    "NAME": "Good Relic",
-    "FLAVOR": "Flavor text displayed in detailed relic view.",
+  "${modID}:brokenSyringe": {
+    "NAME": "Broken Syringe",
+    "FLAVOR": "The plunger is jammed. You might need to hit it with something.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of your turn. [E] is an energy icon."
+      "The first time you lose HP during combat, heal 8 HP."
     ]
   },
   "${modID}:conquerorWorm": {
@@ -18,6 +18,13 @@
     "FLAVOR": "Also known as ‘Charon’s Cradle’.",
     "DESCRIPTIONS": [
       "Every 3rd card that exhausts when played is refunded its energy cost."
+    ]
+  },
+  "${modID}:cloverKey": {
+    "NAME": "Clover Key",
+    "FLAVOR": "A tool of the ungrateful.",
+    "DESCRIPTIONS": [
+      "The next chest you open will contain an extra uncommon or rare relic."
     ]
   }
 }

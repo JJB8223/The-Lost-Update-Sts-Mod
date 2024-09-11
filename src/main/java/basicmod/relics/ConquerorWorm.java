@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.lang.reflect.Field;
 
@@ -62,6 +63,10 @@ public class ConquerorWorm extends BaseRelic{
           }
         }
       } 
+    }
+
+    public AbstractRelic makeCopy() {
+    return new ConquerorWorm();
     }
 
 } 
