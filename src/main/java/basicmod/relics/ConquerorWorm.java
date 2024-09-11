@@ -42,7 +42,7 @@ public class ConquerorWorm extends BaseRelic{
 
    public void atTurnStart() {
       for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-        if (AbstractDungeon.miscRng.randomBoolean(0.50f)) {
+        if (AbstractDungeon.miscRng.randomBoolean(0.02f)) {
           if (m != null) {
             moveByte =  ((AbstractMonster) m).nextMove;
             moveIntent = ((AbstractMonster) m).intent;
