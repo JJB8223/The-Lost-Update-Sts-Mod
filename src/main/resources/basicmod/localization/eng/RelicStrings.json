@@ -26,5 +26,12 @@
     "DESCRIPTIONS": [
       "The next chest you open will contain an extra uncommon or rare relic."
     ]
+  },
+  "${modID}:spigot": {
+    "NAME": "Spigot",
+    "FLAVOR": "Pour out your troubles.",
+    "DESCRIPTIONS": [
+      "If you have 2 or more debuffs at the start of your turn, draw 1 extra card."
+    ]
   }
 }
