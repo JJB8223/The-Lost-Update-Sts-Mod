@@ -47,5 +47,12 @@
     "DESCRIPTIONS": [
       "Upon pick up, choose 1 card to remove from your deck."
     ]
+  },
+  "${modID}:bayonet": {
+    "NAME": "Bayonet",
+    "FLAVOR": "Over the top!",
+    "DESCRIPTIONS": [
+      "If the first card played this turn costs 2 or more, it has a 1 in 4 chance to be refunded its energy cost."
+    ]
   }
 }

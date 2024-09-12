@@ -43,6 +43,6 @@ public class BrokenSyringe extends BaseRelic{
     }
 
     public AbstractRelic makeCopy() {
-    return new BrokenSyringe();
+      return new BrokenSyringe();
     }
 } 
