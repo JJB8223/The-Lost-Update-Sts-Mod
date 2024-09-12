@@ -33,5 +33,19 @@
     "DESCRIPTIONS": [
       "If you have 2 or more debuffs at the start of your turn, draw 1 extra card."
     ]
+  },
+  "${modID}:incenseBundle": {
+    "NAME": "Incense Bundle",
+    "FLAVOR": "Supposedly the vapors can purify anything, albeit very slowly. - Ranwid",
+    "DESCRIPTIONS": [
+      "Exhausting a card removes 1 stack of a random debuff from yourself."
+    ]
+  },
+  "${modID}:scalpel": {
+    "NAME": "Scalpel",
+    "FLAVOR": "Patience rewards a steady hand.",
+    "DESCRIPTIONS": [
+      "Upon pick up, choose 1 card to remove from your deck."
+    ]
   }
 }
