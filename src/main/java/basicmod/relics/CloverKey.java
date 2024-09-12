@@ -18,11 +18,8 @@ public class CloverKey extends BaseRelic{
 
     public CloverKey() {
         super(ID, NAME, RARITY, SOUND);
-        this.counter = 0;
         this.nextChest = true;
     }
-
-
 
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
@@ -37,8 +34,8 @@ public class CloverKey extends BaseRelic{
             } else {
                 AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.RARE);
             } 
-            this.description = this.DESCRIPTIONS[1];
             nextChest = false;
+            this.grayscale = true;
         } 
     }
 

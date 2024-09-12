@@ -20,7 +20,6 @@ public class BrokenSyringe extends BaseRelic{
 
     public BrokenSyringe() {
         super(ID, NAME, RARITY, SOUND);
-        this.counter = 0;
         this.firstAttack = true;
     }
 
@@ -28,6 +27,10 @@ public class BrokenSyringe extends BaseRelic{
 
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
+    }
+
+    public void atBattleStart(){
+      this.firstAttack = true;
     }
 
     public int onAttacked(DamageInfo info, int damageAmount) {

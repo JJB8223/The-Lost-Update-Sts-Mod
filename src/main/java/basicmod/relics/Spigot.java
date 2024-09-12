@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 
@@ -25,7 +26,13 @@ public class Spigot extends BaseRelic{
     }
 
     public void atTurnStart() {
-        if(AbstractDungeon.player.powers.size() >= 2){
+        final int[] debuffCount = {0};
+        AbstractDungeon.player.powers.forEach(power -> {
+            if (power.type == AbstractPower.PowerType.DEBUFF) {
+                debuffCount[0]++;
+            }
+        });
+        if(debuffCount[0] >= 2){
             addToBot((AbstractGameAction)new RelicAboveCreatureAction((AbstractCreature)AbstractDungeon.player, this));
             addToTop((AbstractGameAction)new DrawCardAction(1));
         }
