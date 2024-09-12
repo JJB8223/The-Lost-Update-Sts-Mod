@@ -33,9 +33,10 @@ public class AshTray extends BaseRelic{
             this.counter++;
         
             if (this.counter == 3) {
-                AbstractDungeon.player.hand.refreshHandLayout();
                 addToBot((AbstractGameAction)new RelicAboveCreatureAction((AbstractCreature)AbstractDungeon.player, this));
-                addToBot((AbstractGameAction)new GainEnergyAction(card.energyOnUse));
+                if(card.cost != 0){
+                    addToBot((AbstractGameAction)new GainEnergyAction(card.cost));
+                }
                 this.counter = 0;
                 flash();
                 this.pulse = false;
