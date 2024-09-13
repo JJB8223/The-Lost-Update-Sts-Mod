@@ -38,7 +38,12 @@ public class IncenseBundle extends BaseRelic{
 
             if (!debuffs.isEmpty()) {
                 AbstractPower randomDebuff = debuffs.get(AbstractDungeon.relicRng.random(debuffs.size() - 1));
-                addToTop((AbstractGameAction)new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, randomDebuff));
+                if (randomDebuff.amount > 1) {
+                    randomDebuff.amount--;
+                    randomDebuff.updateDescription();
+                } else {
+                    addToTop((AbstractGameAction)new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, randomDebuff));
+                }
             }
         }
     }

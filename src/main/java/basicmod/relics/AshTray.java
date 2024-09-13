@@ -32,7 +32,7 @@ public class AshTray extends BaseRelic{
         if(!card.isEthereal){
             this.counter++;
         
-            if (this.counter == 3) {
+            if (this.counter == 5) {
                 addToBot((AbstractGameAction)new RelicAboveCreatureAction((AbstractCreature)AbstractDungeon.player, this));
                 if(card.cost != 0){
                     addToBot((AbstractGameAction)new GainEnergyAction(card.cost));
@@ -40,7 +40,7 @@ public class AshTray extends BaseRelic{
                 this.counter = 0;
                 flash();
                 this.pulse = false;
-            } else if (this.counter == 2) {
+            } else if (this.counter == 4) {
                 beginPulse();
                 this.pulse = true;
                 

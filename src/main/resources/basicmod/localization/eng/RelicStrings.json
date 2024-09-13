@@ -17,7 +17,7 @@
     "NAME": "Ash Tray",
     "FLAVOR": "Also known as ‘Charon’s Cradle’.",
     "DESCRIPTIONS": [
-      "Every 3rd card that exhausts when played is refunded its energy cost."
+      "Every 5th card that exhausts when played is refunded its energy cost."
     ]
   },
   "${modID}:cloverKey": {
@@ -53,6 +53,13 @@
     "FLAVOR": "Over the top!",
     "DESCRIPTIONS": [
       "If the first card played this turn costs 2 or more, it has a 1 in 4 chance to be refunded its energy cost."
+    ]
+  },
+  "${modID}:rustyBreastplate": {
+    "NAME": "Rusty Breastplate",
+    "FLAVOR": "The metal is strong, but heavily corroded. Be careful around its edges. ",
+    "DESCRIPTIONS": [
+      "All incoming damage is halved. Gain 1 Poison from each incoming attack."
     ]
   }
 }

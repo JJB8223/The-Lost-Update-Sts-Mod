@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class Bayonet extends BaseRelic {
     private static final String NAME = "bayonet"; 
     public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
-    private static final RelicTier RARITY = RelicTier.COMMON; //The relic's rarity.
+    private static final RelicTier RARITY = RelicTier.UNCOMMON; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked
     private boolean firstCardPlayed = false;
 
@@ -29,7 +29,7 @@ public class Bayonet extends BaseRelic {
 
     public void onPlayCard(AbstractCard card, AbstractCreature target){
         if(firstCardPlayed && card.costForTurn >= 2){
-            if(AbstractDungeon.relicRng.randomBoolean(0.02f)){
+            if(AbstractDungeon.relicRng.randomBoolean(0.25f)){
                 flash();
                 AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(card.costForTurn));
             }
