@@ -22,7 +22,7 @@ public class ConquerorWorm extends BaseRelic{
     private static final String NAME = "conquerorWorm"; 
     public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
     private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
-    private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
+    private static final LandingSound SOUND = LandingSound.HEAVY; //The sound played when the relic is clicked.
     private float MODIFIER_AMT = 0.15F;
     private static final float PARASITE_CHANCE = 0.02F;
 

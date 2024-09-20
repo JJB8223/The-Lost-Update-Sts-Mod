@@ -33,6 +33,10 @@ public class CollectorsSleeves extends BaseRelic{
         AbstractDungeon.player.energy.energyMaster--;
     }
     
+    public void onPlayerEntry(){
+        AbstractDungeon.getRewardCards();
+    }
+
     public AbstractRelic makeCopy() {
         return new CollectorsSleeves();
     }
