@@ -24,49 +24,51 @@ public class ConquerorWorm extends BaseRelic{
     private static final RelicTier RARITY = RelicTier.BOSS; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.CLINK; //The sound played when the relic is clicked.
     private float MODIFIER_AMT = 0.15F;
-    private AbstractMonster.Intent moveIntent;
-    private byte moveByte;
-    private EnemyMoveInfo move;
+    private static final float PARASITE_CHANCE = 0.02F;
 
     public ConquerorWorm() {
         super(ID, NAME, RARITY, SOUND);
     }
 
-
-    public void atBattleStart(){
-      for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-        m.currentHealth = m.currentHealth - (int)(m.maxHealth * (this.MODIFIER_AMT));
-        m.healthBarUpdatedEvent();
-      } 
+    public String getUpdatedDescription() {
+      return this.DESCRIPTIONS[0];
     }
 
-   public void atTurnStart() {
-      for (AbstractMonster m : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
-        if (AbstractDungeon.miscRng.randomBoolean(0.02f)) {
-          if (m != null) {
-            moveByte =  ((AbstractMonster) m).nextMove;
-            moveIntent = ((AbstractMonster) m).intent;
-
-            try {
-              Field f = AbstractMonster.class.getDeclaredField("move");
-              f.setAccessible(true);
-              move = (EnemyMoveInfo) f.get(m);
-              EnemyMoveInfo stunMove = new EnemyMoveInfo(moveByte, AbstractMonster.Intent.STRONG_DEBUFF, -1, 0, false);
-              f.set(m, stunMove);
-              ((AbstractMonster) m).createIntent();
-            } catch (IllegalAccessException | NoSuchFieldException e) {
-                e.printStackTrace();
-            }
-
-            AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new FastShakeAction((AbstractCreature)m, 0.5F, 0.2F));
-            AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new AddCardToDeckAction(CardLibrary.getCard("Parasite").makeCopy()));
-          }
+    public void atBattleStart(){
+      for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+        if (m != null && !m.isDeadOrEscaped()) {
+            // Reduce current health by 15% of max health
+            int healthReduction = (int) (m.maxHealth * MODIFIER_AMT);
+            m.currentHealth -= healthReduction;
+            m.healthBarUpdatedEvent(); // Update health bar visually
         }
       } 
     }
 
+   public void atTurnStart() {
+    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+      if (m != null && !m.isDeadOrEscaped()) {
+          // 2% chance to give the player a Parasite
+          if (AbstractDungeon.miscRng.randomBoolean(PARASITE_CHANCE)) {
+              flash(); // Visual indication that the relic activates
+
+              // Add a "Parasite" card to the player's deck
+              AbstractDungeon.actionManager.addToBottom(
+                      new AddCardToDeckAction(CardLibrary.getCard(Parasite.ID).makeCopy())
+              );
+
+              // Add a shake effect to the monster
+              AbstractDungeon.actionManager.addToBottom(new FastShakeAction(m, 0.5F, 0.2F));
+              
+              // Show relic effect above the creature
+              AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(m, this));
+          }
+      }
+    }
+  }
+
     public AbstractRelic makeCopy() {
-    return new ConquerorWorm();
+      return new ConquerorWorm();
     }
 
 } 
