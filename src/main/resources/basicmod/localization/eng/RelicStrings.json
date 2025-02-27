@@ -57,9 +57,16 @@
   },
   "${modID}:rustyBreastplate": {
     "NAME": "Rusty Breastplate",
-    "FLAVOR": "The metal is strong, but heavily corroded. Be careful around its edges. ",
+    "FLAVOR": "The metal is strong, but heavily corroded. Be careful around its edges.",
     "DESCRIPTIONS": [
       "All incoming damage is halved. Gain 1 Poison from each incoming attack."
+    ]
+  },
+  "${modID}:heartyKebab": {
+    "NAME": "Hearty Kebab",
+    "FLAVOR": "It tastes familiar…and earthy.",
+    "DESCRIPTIONS": [
+      "While between turns, you can only take damage up to 50% of your max hp ."
     ]
   }
 }
