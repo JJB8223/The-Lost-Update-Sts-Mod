@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class HeartyKebab extends BaseRelic {
-    private static final String NAME = "saltLamp"; 
+    private static final String NAME = "heartyKebab"; 
     public static final String ID = makeID(NAME); //This adds the mod's prefix to the relic ID, resulting in modID:MyRelic
     private static final RelicTier RARITY = RelicTier.RARE; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.FLAT; //The sound played when the relic is clicked
@@ -16,6 +16,7 @@ public class HeartyKebab extends BaseRelic {
 
     public HeartyKebab() {
         super(ID, NAME, RARITY, SOUND);
+        this.counter = 0;
     }
 
     public String getUpdatedDescription(){
@@ -23,7 +24,9 @@ public class HeartyKebab extends BaseRelic {
     }
 
     public void resetDamageLimit(){
-        this.damageTakenLimit = AbstractDungeon.player.maxHealth/2;
+        int newDmgLimit = AbstractDungeon.player.maxHealth/2;
+        this.damageTakenLimit = newDmgLimit;
+        counter = newDmgLimit;
     }
 
     public void atBattleStart(){    
