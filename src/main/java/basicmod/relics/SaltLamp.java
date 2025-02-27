@@ -2,13 +2,9 @@ package basicmod.relics;
 
 import static basicmod.BasicMod.makeID;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 
@@ -28,7 +24,7 @@ public class SaltLamp extends BaseRelic{
     }
 
     public void onHeal(int healAmount) {
-        if (AbstractDungeon.player.hasRelic(this.ID)) {
+        if (AbstractDungeon.player.hasRelic(SaltLamp.ID)) {
             flash(); 
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this)); 
             addToBot(new HealAction(AbstractDungeon.player, AbstractDungeon.player, EXTRA_HEAL)); 
